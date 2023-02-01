@@ -4,7 +4,7 @@
 
 double Boots::calcTime() {
     speed = 6;
-    return distance / speed + chill(before_chill);
+    return (static_cast<double>(distance) / (speed)) + chill(before_chill);
     
 }
 
@@ -16,7 +16,9 @@ double Boots::chill(int before_chill_) {
     last = 5;
 
     num = (distance / speed) / before_chill;
-
+    if ((distance / speed) % before_chill == 0) {
+        --num;
+    }
     if (num == 1) {
         return one;
     }

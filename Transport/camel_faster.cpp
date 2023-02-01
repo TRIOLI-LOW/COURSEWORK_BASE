@@ -3,7 +3,7 @@
 
 double Camel_faster::calcTime() {
     speed = 40;
-    return distance / speed + chill(before_chill);
+    return (static_cast<double>(distance) / (speed)) + (chill(before_chill));
 }
 
 
@@ -15,7 +15,9 @@ double Camel_faster::chill(int before_chill_) {
     last = 8;
 
     num = (distance / speed) / before_chill;
-
+    if ((distance / speed) % before_chill == 0) {
+        --num;
+    }
     if (num == 1) {
         return one;
     }
@@ -23,6 +25,6 @@ double Camel_faster::chill(int before_chill_) {
         return one + second;
     }
     else {
-        return ((one + second) + ((num - 2) * last));
+        return (((num - 2) * last) + (one + second)) ;
     }
 }

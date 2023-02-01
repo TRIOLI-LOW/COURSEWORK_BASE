@@ -8,13 +8,14 @@ double Carpet::calcTime() {
 
 double Carpet::kef(int distance_) {
 
-	if (distance_ < 1000) {
+
+	if (distance < 1000) {
 		return 1;
 	}
-	else if (distance_ < 5000) {
-		return 0.93;
+	else if (distance < 5000) {
+		return 0.97;
 	}
-	else if (distance_ < 10000) {
+	else if (distance < 10000) {
 		return 0.9;
 	}
 	else return 0.95;
